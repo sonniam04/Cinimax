@@ -6,7 +6,8 @@
     "login": "เข้าสู่ระบบ",
     "register": "สมัครสมาชิก",
     "logout": "ออกจากระบบ",
-    "searchPlaceholder": "ค้นหาหนัง..."
+    "searchPlaceholder": "ค้นหาหนัง...",
+    "seeAllResults": "ดูผลทั้งหมดสำหรับ"
   },
   "home": {
     "trending": "กำลังมาแรงสัปดาห์นี้",
@@ -15,7 +16,11 @@
     "forYou": "แนะนำสำหรับคุณ",
     "watchTrailer": "ดูตัวอย่าง",
     "moreInfo": "รายละเอียด",
-    "heroTagline": "โรงหนังของคุณ ตามแบบที่คุณชอบ"
+    "heroTagline": "โรงหนังของคุณ ตามแบบที่คุณชอบ",
+    "browseByGenre": "เลือกดูตามประเภท",
+    "allCategories": "ทั้งหมด",
+    "noMovies": "ไม่พบหนัง",
+    "seeMoreInGenre": "ดูเพิ่มเติมใน"
   },
   "movie": {
     "overview": "เนื้อเรื่อง",

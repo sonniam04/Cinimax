@@ -7,6 +7,7 @@ import {
   searchMovies,
   getGenres,
   getRecommendations,
+  discoverByGenre,
 } from "../lib/tmdb.js";
 import { prisma } from "../lib/prisma.js";
 import { getCookie } from "hono/cookie";
@@ -36,6 +37,14 @@ tmdb.get("/search", async (c) => {
 tmdb.get("/genres", async (c) => {
   const data = await getGenres();
   return c.json({ genres: data.genres });
+});
+
+tmdb.get("/discover", async (c) => {
+  const genreId = c.req.query("genreId") ?? "";
+  const page = parseInt(c.req.query("page") ?? "1");
+  if (!genreId) return c.json({ results: [], total_results: 0 });
+  const data = await discoverByGenre(genreId, page);
+  return c.json({ results: data.results ?? [], total_results: data.total_results ?? 0 });
 });
 
 tmdb.get("/movies/:id", async (c) => {

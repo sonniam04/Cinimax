@@ -6,7 +6,8 @@
     "login": "Sign In",
     "register": "Sign Up",
     "logout": "Sign Out",
-    "searchPlaceholder": "Search movies..."
+    "searchPlaceholder": "Search movies...",
+    "seeAllResults": "See all results for"
   },
   "home": {
     "trending": "Trending This Week",
@@ -15,7 +16,11 @@
     "forYou": "Recommended For You",
     "watchTrailer": "Watch Trailer",
     "moreInfo": "More Info",
-    "heroTagline": "Your Cinema. Your Choice."
+    "heroTagline": "Your Cinema. Your Choice.",
+    "browseByGenre": "Browse by Genre",
+    "allCategories": "All",
+    "noMovies": "No movies found",
+    "seeMoreInGenre": "See more in"
   },
   "movie": {
     "overview": "Overview",

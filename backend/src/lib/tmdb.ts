@@ -41,3 +41,11 @@ export const getGenres = () =>
 
 export const getRecommendations = (id: string) =>
   tmdbFetch<any>(`/movie/${id}/recommendations`);
+
+export const discoverByGenre = (genreId: string, page = 1) =>
+  tmdbFetch<any>("/discover/movie", {
+    with_genres: genreId,
+    sort_by: "popularity.desc",
+    page: String(page),
+    include_adult: "false",
+  });

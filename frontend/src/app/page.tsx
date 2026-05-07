@@ -1,15 +1,19 @@
 import { getTranslations } from "next-intl/server";
-import { getHomeMovies } from "@/lib/tmdb";
+import { getHomeMovies, getGenres } from "@/lib/tmdb";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import MovieHero from "@/components/movies/MovieHero";
 import MovieCarousel from "@/components/movies/MovieCarousel";
 import RecommendationsCarousel from "@/components/movies/RecommendationsCarousel";
+import GenreBrowser from "@/components/movies/GenreBrowser";
 
 export default async function HomePage() {
   const t = await getTranslations("home");
 
-  const { trending, topRated, nowPlaying } = await getHomeMovies();
+  const [{ trending, topRated, nowPlaying }, genres] = await Promise.all([
+    getHomeMovies(),
+    getGenres(),
+  ]);
 
   const heroMovie = trending[0];
 
@@ -33,6 +37,7 @@ export default async function HomePage() {
           <MovieCarousel movies={nowPlaying} title={t("nowPlaying")} />
           <MovieCarousel movies={topRated} title={t("topRated")} />
           <RecommendationsCarousel />
+          <GenreBrowser genres={genres} />
         </div>
       </main>
       <Footer />
