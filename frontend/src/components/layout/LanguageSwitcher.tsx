@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useLocale } from "next-intl";
 import { Globe } from "lucide-react";
 
 const locales = [
@@ -11,17 +11,13 @@ const locales = [
 
 export default function LanguageSwitcher() {
   const router = useRouter();
-  const [pending, setPending] = useState(false);
+  const currentLocale = useLocale();
 
-  async function switchLocale(locale: string) {
-    setPending(true);
-    await fetch("/api/locale", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ locale }),
-    });
+  function switchLocale(locale: string) {
+    if (locale === currentLocale) return;
+    // Set cookie directly — no API call needed
+    document.cookie = `locale=${locale}; path=/; max-age=31536000; SameSite=Lax`;
     router.refresh();
-    setPending(false);
   }
 
   return (
@@ -31,8 +27,11 @@ export default function LanguageSwitcher() {
         <button
           key={l.code}
           onClick={() => switchLocale(l.code)}
-          disabled={pending}
-          className="px-2 py-0.5 text-xs rounded-full hover:bg-border transition-colors disabled:opacity-50"
+          className={`px-2 py-0.5 text-xs rounded-full transition-colors ${
+            currentLocale === l.code
+              ? "bg-cinema-red text-white font-semibold"
+              : "hover:bg-border text-muted-foreground"
+          }`}
         >
           {l.label}
         </button>
