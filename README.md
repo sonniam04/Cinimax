@@ -124,3 +124,58 @@ BACKEND_URL=http://localhost:4000
 | PUT/DELETE | `/comments/:id` | ✅ | Edit / delete comment |
 
 > The frontend proxies all `/api/*` requests to the backend via Next.js rewrites — no CORS issues.
+
+---
+
+## 🚢 Deployment
+
+### Option A — Docker (recommended)
+
+```bash
+# Copy and fill env files
+cp backend/.env.example backend/.env
+cp frontend/.env.example frontend/.env.local
+
+# Edit backend/.env: set JWT_SECRET, TMDB_API_KEY, FRONTEND_URL
+# Edit frontend/.env.local: set BACKEND_URL to your backend's public URL
+
+docker compose up -d
+```
+
+### Option B — Vercel (frontend) + Railway (backend)
+
+**Backend → Railway / Render**
+1. Connect your GitHub repo, set root directory to `backend/`
+2. Build command: `npm run build`
+3. Start command: `npm start`
+4. Set env vars: `PORT`, `DATABASE_URL`, `DATABASE_AUTH_TOKEN` (Turso), `JWT_SECRET`, `TMDB_API_KEY`, `FRONTEND_URL`
+
+**Frontend → Vercel**
+1. Import repo, set root directory to `frontend/`
+2. Set env var: `BACKEND_URL=https://your-backend.railway.app`
+3. Deploy — done ✅
+
+### Option C — Turso (cloud SQLite)
+
+Replace the local SQLite file with [Turso](https://turso.tech) for persistent cloud storage:
+
+```env
+DATABASE_URL=libsql://<db-name>-<org>.turso.io
+DATABASE_AUTH_TOKEN=<your-auth-token>
+```
+
+Run migrations on first deploy:
+```bash
+npx prisma migrate deploy
+```
+
+---
+
+## 🔒 Production Checklist
+
+- [ ] `JWT_SECRET` — strong random string (≥32 chars)
+- [ ] `TMDB_API_KEY` — from themoviedb.org
+- [ ] `FRONTEND_URL` — exact deployed frontend origin (for CORS)
+- [ ] `BACKEND_URL` — exact deployed backend URL (for Next.js rewrites)
+- [ ] Database — Turso URL + auth token (or mounted volume for SQLite)
+- [ ] HTTPS — use a reverse proxy (Nginx, Caddy) or platform TLS
