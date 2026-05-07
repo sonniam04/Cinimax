@@ -1,36 +1,126 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🎬 Cinemax
 
-## Getting Started
+A full-stack movie discovery and recommendation web app built with **Next.js 16** + **Hono**. Browse trending movies, search by title, rate (1–10), like, comment, and get personalised recommendations — all powered by the TMDB API.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## ✨ Features
+
+- 🎥 **Browse movies** — Trending, Now Playing, Top Rated carousels on the home page
+- 🔍 **Search** — Search by title with genre filters
+- ⭐ **Rate** — Score movies 1–10 with optimistic UI
+- ❤️ **Like** — Add movies to your favourites
+- 💬 **Comment** — Post, edit, and delete comments on any movie
+- 🤖 **Recommendations** — Personalised carousel based on your likes/ratings
+- 👤 **Profile** — See all your liked and rated movies
+- 🌐 **Bilingual** — Thai / English (switch in the Navbar)
+- 🔒 **Auth** — Email + password with JWT httpOnly cookies
+
+---
+
+## 🗂️ Project Structure
+
+```
+cinemax/
+├── backend/      # Hono API server  (port 4000)
+│   ├── prisma/   # SQLite schema + migrations
+│   └── src/
+│       ├── routes/     # auth · ratings · likes · comments · tmdb
+│       ├── lib/        # prisma · jwt · tmdb helpers
+│       └── middleware/
+└── frontend/     # Next.js 16 App Router  (port 3000)
+    └── src/
+        ├── app/          # pages (home · movies · search · profile · auth)
+        ├── components/   # layout · movies · interactions · comments · auth
+        ├── context/      # AuthContext  (useAuth hook)
+        ├── hooks/        # useRating · useLike  (SWR)
+        └── lib/          # api · tmdb · utils
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠️ Tech Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Layer | Technology |
+|---|---|
+| Frontend | Next.js 16 · TypeScript · Tailwind CSS v4 |
+| Backend | Hono · Node.js · TypeScript |
+| Database | SQLite · Prisma v7 (libsql adapter) |
+| Auth | JWT · bcryptjs · httpOnly cookies |
+| Movie Data | TMDB API |
+| State / Data | SWR (optimistic mutations) |
+| i18n | next-intl (TH / EN) |
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 🚀 Getting Started
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Prerequisites
+- Node.js 18+
+- A free [TMDB API key](https://www.themoviedb.org/settings/api)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 1. Clone
+```bash
+git clone https://github.com/sonniam04/Cinimax.git
+cd Cinimax
+```
 
-## Deploy on Vercel
+### 2. Backend setup
+```bash
+cd backend
+cp .env.example .env        # fill in JWT_SECRET and TMDB_API_KEY
+npm install
+npx prisma migrate dev --name init
+npm run dev                 # → http://localhost:4000
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 3. Frontend setup
+```bash
+cd ../frontend
+cp .env.example .env.local  # set BACKEND_URL=http://localhost:4000
+npm install
+npm run dev                 # → http://localhost:3000
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Open **http://localhost:3000** 🎉
+
+---
+
+## ⚙️ Environment Variables
+
+### `backend/.env`
+```env
+PORT=4000
+DATABASE_URL="file:./prisma/dev.db"
+JWT_SECRET=<openssl rand -base64 32>
+TMDB_API_KEY=<your_tmdb_key>
+TMDB_BASE_URL=https://api.themoviedb.org/3
+FRONTEND_URL=http://localhost:3000
+```
+
+### `frontend/.env.local`
+```env
+BACKEND_URL=http://localhost:4000
+```
+
+---
+
+## 📡 API Overview
+
+| Method | Path | Auth | Description |
+|---|---|---|---|
+| POST | `/auth/register` | — | Create account |
+| POST | `/auth/login` | — | Login, sets cookie |
+| POST | `/auth/logout` | — | Clear cookie |
+| GET | `/auth/me` | cookie | Current user |
+| GET | `/tmdb/trending` | — | Home page movies |
+| GET | `/tmdb/movies/:id` | — | Movie detail |
+| GET | `/tmdb/search?q=` | — | Search |
+| GET | `/tmdb/recommendations` | optional | Personalised picks |
+| GET | `/tmdb/profile` | ✅ | Liked + rated movies |
+| GET/POST/DELETE | `/ratings?movieId=` | ✅ | User ratings |
+| GET/POST/DELETE | `/likes?movieId=` | ✅ | User likes |
+| GET/POST | `/comments?movieId=` | POST ✅ | Comments |
+| PUT/DELETE | `/comments/:id` | ✅ | Edit / delete comment |
+
+> The frontend proxies all `/api/*` requests to the backend via Next.js rewrites — no CORS issues.

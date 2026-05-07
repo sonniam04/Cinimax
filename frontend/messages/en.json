@@ -1,0 +1,103 @@
+{
+  "nav": {
+    "home": "Home",
+    "search": "Search",
+    "profile": "Profile",
+    "login": "Sign In",
+    "register": "Sign Up",
+    "logout": "Sign Out",
+    "searchPlaceholder": "Search movies..."
+  },
+  "home": {
+    "trending": "Trending This Week",
+    "topRated": "Top Rated",
+    "nowPlaying": "Now Playing",
+    "forYou": "Recommended For You",
+    "watchTrailer": "Watch Trailer",
+    "moreInfo": "More Info",
+    "heroTagline": "Your Cinema. Your Choice."
+  },
+  "movie": {
+    "overview": "Overview",
+    "cast": "Cast",
+    "similar": "Similar Movies",
+    "genres": "Genres",
+    "runtime": "Runtime",
+    "releaseDate": "Release Date",
+    "rating": "Rating",
+    "yourRating": "Your Rating",
+    "rateThis": "Rate this movie",
+    "addToFavorites": "Add to Favorites",
+    "removeFromFavorites": "Remove from Favorites",
+    "trailer": "Trailer",
+    "noTrailer": "No trailer available",
+    "userScore": "User Score",
+    "director": "Director",
+    "budget": "Budget",
+    "revenue": "Revenue"
+  },
+  "auth": {
+    "login": "Sign In",
+    "register": "Create Account",
+    "email": "Email",
+    "password": "Password",
+    "name": "Full Name",
+    "confirmPassword": "Confirm Password",
+    "loginButton": "Sign In",
+    "registerButton": "Create Account",
+    "noAccount": "Don't have an account?",
+    "hasAccount": "Already have an account?",
+    "signUpLink": "Sign up",
+    "signInLink": "Sign in",
+    "loginError": "Invalid email or password",
+    "registerError": "Failed to create account",
+    "emailExists": "Email already exists",
+    "passwordMismatch": "Passwords do not match",
+    "passwordMin": "Password must be at least 6 characters"
+  },
+  "rating": {
+    "loginToRate": "Sign in to rate this movie",
+    "yourRating": "Your rating",
+    "removeRating": "Remove rating",
+    "ratingUpdated": "Rating updated",
+    "scale": "out of 10"
+  },
+  "comments": {
+    "title": "Reviews & Comments",
+    "placeholder": "Share your thoughts on this movie...",
+    "post": "Post Comment",
+    "edit": "Edit",
+    "delete": "Delete",
+    "loginToComment": "Sign in to leave a comment",
+    "noComments": "No comments yet. Be the first!",
+    "deleteConfirm": "Are you sure you want to delete this comment?"
+  },
+  "profile": {
+    "title": "My Profile",
+    "likedMovies": "Liked Movies",
+    "myRatings": "My Ratings",
+    "noLikes": "You haven't liked any movies yet.",
+    "noRatings": "You haven't rated any movies yet.",
+    "browseMovies": "Browse Movies"
+  },
+  "search": {
+    "title": "Search Results",
+    "noResults": "No movies found for",
+    "searchFor": "Search for movies...",
+    "filterByGenre": "Filter by Genre",
+    "sortBy": "Sort By",
+    "popularity": "Popularity",
+    "rating": "Rating",
+    "releaseDate": "Release Date",
+    "allGenres": "All Genres"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Something went wrong",
+    "retry": "Try Again",
+    "back": "Back",
+    "seeAll": "See All",
+    "minutes": "min",
+    "notFound": "Page not found"
+  }
+}

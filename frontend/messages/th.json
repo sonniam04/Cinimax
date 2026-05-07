@@ -1,0 +1,103 @@
+{
+  "nav": {
+    "home": "หน้าแรก",
+    "search": "ค้นหา",
+    "profile": "โปรไฟล์",
+    "login": "เข้าสู่ระบบ",
+    "register": "สมัครสมาชิก",
+    "logout": "ออกจากระบบ",
+    "searchPlaceholder": "ค้นหาหนัง..."
+  },
+  "home": {
+    "trending": "กำลังมาแรงสัปดาห์นี้",
+    "topRated": "คะแนนสูงสุด",
+    "nowPlaying": "กำลังฉาย",
+    "forYou": "แนะนำสำหรับคุณ",
+    "watchTrailer": "ดูตัวอย่าง",
+    "moreInfo": "รายละเอียด",
+    "heroTagline": "โรงหนังของคุณ ตามแบบที่คุณชอบ"
+  },
+  "movie": {
+    "overview": "เนื้อเรื่อง",
+    "cast": "นักแสดง",
+    "similar": "หนังที่คล้ายกัน",
+    "genres": "ประเภท",
+    "runtime": "ความยาว",
+    "releaseDate": "วันที่เข้าฉาย",
+    "rating": "คะแนน",
+    "yourRating": "คะแนนของคุณ",
+    "rateThis": "ให้คะแนนหนังเรื่องนี้",
+    "addToFavorites": "เพิ่มในรายการโปรด",
+    "removeFromFavorites": "ลบออกจากรายการโปรด",
+    "trailer": "ตัวอย่างหนัง",
+    "noTrailer": "ไม่มีตัวอย่างหนัง",
+    "userScore": "คะแนนผู้ใช้",
+    "director": "ผู้กำกับ",
+    "budget": "งบประมาณ",
+    "revenue": "รายได้"
+  },
+  "auth": {
+    "login": "เข้าสู่ระบบ",
+    "register": "สร้างบัญชีใหม่",
+    "email": "อีเมล",
+    "password": "รหัสผ่าน",
+    "name": "ชื่อ-นามสกุล",
+    "confirmPassword": "ยืนยันรหัสผ่าน",
+    "loginButton": "เข้าสู่ระบบ",
+    "registerButton": "สร้างบัญชี",
+    "noAccount": "ยังไม่มีบัญชี?",
+    "hasAccount": "มีบัญชีอยู่แล้ว?",
+    "signUpLink": "สมัครสมาชิก",
+    "signInLink": "เข้าสู่ระบบ",
+    "loginError": "อีเมลหรือรหัสผ่านไม่ถูกต้อง",
+    "registerError": "ไม่สามารถสร้างบัญชีได้",
+    "emailExists": "อีเมลนี้ถูกใช้งานแล้ว",
+    "passwordMismatch": "รหัสผ่านไม่ตรงกัน",
+    "passwordMin": "รหัสผ่านต้องมีอย่างน้อย 6 ตัวอักษร"
+  },
+  "rating": {
+    "loginToRate": "เข้าสู่ระบบเพื่อให้คะแนน",
+    "yourRating": "คะแนนของคุณ",
+    "removeRating": "ลบคะแนน",
+    "ratingUpdated": "อัปเดตคะแนนแล้ว",
+    "scale": "จาก 10"
+  },
+  "comments": {
+    "title": "รีวิวและความคิดเห็น",
+    "placeholder": "แชร์ความคิดเห็นของคุณเกี่ยวกับหนังเรื่องนี้...",
+    "post": "โพสต์ความคิดเห็น",
+    "edit": "แก้ไข",
+    "delete": "ลบ",
+    "loginToComment": "เข้าสู่ระบบเพื่อแสดงความคิดเห็น",
+    "noComments": "ยังไม่มีความคิดเห็น เป็นคนแรกได้เลย!",
+    "deleteConfirm": "คุณต้องการลบความคิดเห็นนี้หรือไม่?"
+  },
+  "profile": {
+    "title": "โปรไฟล์ของฉัน",
+    "likedMovies": "หนังที่กดใจ",
+    "myRatings": "คะแนนของฉัน",
+    "noLikes": "คุณยังไม่ได้กดใจหนังเรื่องใดเลย",
+    "noRatings": "คุณยังไม่ได้ให้คะแนนหนังเรื่องใดเลย",
+    "browseMovies": "ดูหนังทั้งหมด"
+  },
+  "search": {
+    "title": "ผลการค้นหา",
+    "noResults": "ไม่พบหนังสำหรับ",
+    "searchFor": "ค้นหาหนัง...",
+    "filterByGenre": "กรองตามประเภท",
+    "sortBy": "เรียงตาม",
+    "popularity": "ความนิยม",
+    "rating": "คะแนน",
+    "releaseDate": "วันที่เข้าฉาย",
+    "allGenres": "ทุกประเภท"
+  },
+  "common": {
+    "loading": "กำลังโหลด...",
+    "error": "เกิดข้อผิดพลาด",
+    "retry": "ลองอีกครั้ง",
+    "back": "กลับ",
+    "seeAll": "ดูทั้งหมด",
+    "minutes": "นาที",
+    "notFound": "ไม่พบหน้านี้"
+  }
+}
